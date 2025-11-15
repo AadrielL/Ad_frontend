@@ -1,13 +1,31 @@
+/* 1. Importação da Fonte Inter (ou a fonte que você definiu no tailwind.config.js) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* 2. Diretivas Essenciais do Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 3. Estilos Globais (Opcional, mas recomendado) */
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Inter', sans-serif;
+    /* Certifique-se de que o corpo da página usa a cor de fundo cinza clara para a UI */
+    background-color: #f9fafb; /* bg-gray-50 */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* 4. Estilos de Componentes Personalizados (Se precisar de algo que o Tailwind não cobre) */
+
+/* Exemplo: Foco mais definido para elementos interativos */
+:focus:focus-visible {
+    outline: 3px solid #6366f1; /* Cor primária do Tailwind (indigo-500) */
+    outline-offset: 2px;
+}
+
+/* Estilo para links de navegação dentro do Header/SideMenu */
+@layer components {
+    .nav-link {
+        @apply p-2 rounded-xl text-gray-700 font-semibold hover:bg-indigo-50 hover:text-indigo-600 transition duration-200;
+    }
 }
